@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philosophy Debate Assistant</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f1f8f6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            background: #ffffff;
+            padding: 30px;
+            max-width: 800px;
+            margin: 50px auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        input[type="text"] {
+            padding: 12px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s ease-in-out;
+        }
+        input[type="text"]:focus {
+            border-color: #3e8e41;
+            outline: none;
+        }
+        input[type="submit"] {
+            background-color: #3e8e41;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #33672b;
+        }
+        .arguments {
+            margin-top: 30px;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        .arguments h3 {
+            color: #333;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            margin-top: 10px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 1em;
+            resize: none;
+            background: #f3f3f3;
+            transition: background-color 0.3s ease;
+        }
+        textarea:focus {
+            background-color: #fff;
+            border-color: #3e8e41;
+            outline: none;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #555;
+        }
+        .footer a {
+            text-decoration: none;
+            color: #3e8e41;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Philosophy Debate Assistant</h1>
+        <form method="POST">
+            <input type="text" name="topic" placeholder="Enter a philosophical topic..." required>
+            <input type="submit" value="Generate Arguments">
+        </form>
+
+        {% if topic %}
+        <div class="arguments">
+            <h2>Topic: "{{ topic }}"</h2>
+            <h3>Argument FOR:</h3>
+            <textarea readonly>{{ for_argument }}</textarea>
+
+            <h3>Argument AGAINST:</h3>
+            <textarea readonly>{{ against_argument }}</textarea>
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="footer">
+        <p>Need more topics? Visit <a href="https://www.philosophybasics.com">Philosophy Basics</a> for inspiration!</p>
+    </div>
+</body>
+</html>
